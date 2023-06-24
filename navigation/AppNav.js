@@ -6,7 +6,8 @@ import HomeScreen from "../views/Home";
 import { AuthContext } from "../context/AuthContext";
 import { View, ActivityIndicator } from "react-native";
 import SignupScreen from "../views/Signup";
-import ResetPasswordScreen from "../views/ResetPassword"
+import ResetPasswordScreen from "../views/ResetPassword";
+import RecipeItemScreen from "../views/Recipe"
 
 const Stack = createNativeStackNavigator();
 
@@ -30,13 +31,13 @@ export default function AppNav() {
             options={{ title: "Inicio" }}
             component={HomeScreen}
           />
+          <Stack.Screen name="Receta" component={RecipeItemScreen} />
         </Stack.Navigator>
       ) : (
         <Stack.Navigator initialRouteName="Login">
           <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="Signup" component={SignupScreen} />
           <Stack.Screen name="Reset Password" component={ResetPasswordScreen} />
-
         </Stack.Navigator>
       )}
     </NavigationContainer>
